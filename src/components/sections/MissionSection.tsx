@@ -26,7 +26,7 @@ export const MissionSection: React.FC = () => {
 					<div className='relative'>
 						<div className='absolute -left-4 -top-4 hidden h-[85%] w-[3px] bg-brandRed md:block' />
 						<img
-							src='/images/mission-group.jpg'
+							src='/images/mission-group.png'
 							alt='Group of happy mentees'
 							className='ml-0 h-full w-full rounded-[4px] object-cover md:ml-6'
 						/>

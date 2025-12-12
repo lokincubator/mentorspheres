@@ -17,14 +17,14 @@ export const HomePage: React.FC = () => {
 					title='Be A Mentee'
 					body='Ed Platform will constitute a comprehensive suite of mentor/mentee matching, & teaching and mentoring tools that will increase the frequency and success rate of knowledge transfer and mentorship.'
 					ctaLabel='Be A Mentee'
-					imageSrc='/images/mentee-girl.jpg'
+					imageSrc='/images/mentee-girl.png'
 					imageAlt='Young woman mentee'
 				/>
 				<SplitHighlightSection
 					title='Be A Mentor'
 					body='Ed Platform will constitute a comprehensive suite of mentor/mentee matching, & teaching and mentoring tools that will increase the frequency and success rate of knowledge transfer and mentorship.'
 					ctaLabel='Be A Mentor'
-					imageSrc='/images/mentor-man.jpg'
+					imageSrc='/images/mentor-man.png'
 					imageAlt='Mentor smiling'
 					reverse
 				/>

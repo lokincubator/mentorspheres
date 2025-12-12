@@ -18,14 +18,13 @@ export const Hero: React.FC = () => {
 	const slide = heroSlides[heroSlideIndex];
 
 	return (
-		<Section background='dark' paddingY='lg' className='relative p-0'>
-			<div className='relative h-[520px] md:h-[560px] lg:h-[620px]'>
+		<Section background="transparent" paddingY="none" className="relative p-0">
+			<div className='relative h-[520px] md:h-[560px] lg:h-[676px]'>
 				<img
-					src='/images/hero-mentor-mentee.jpg'
+					src='/images/hero-mentor-mentee.png'
 					alt='People mentoring around a laptop'
 					className='absolute inset-0 h-full w-full object-cover'
 				/>
-				<div className='absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/20' />
 
 				<div className='relative h-full'>
 					<Container className='flex h-full flex-col justify-center'>

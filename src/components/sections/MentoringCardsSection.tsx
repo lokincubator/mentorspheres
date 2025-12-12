@@ -10,17 +10,17 @@ const cards = [
 	{
 		title: 'Mentoring For Government Agencies',
 		body: 'Ed Platform will constitute a comprehensive suite of mentor/mentee matching, & teaching and mentoring tools.',
-		imageSrc: '/images/card-government.jpg',
+		imageSrc: '/images/card-government.png',
 	},
 	{
 		title: 'Mentoring For Corporate',
 		body: 'Ed Platform will constitute a comprehensive suite of mentor/mentee matching, & teaching and mentoring tools.',
-		imageSrc: '/images/card-corporate.jpg',
+		imageSrc: '/images/card-corporate.png',
 	},
 	{
 		title: 'Mentoring For Associations',
 		body: 'Ed Platform will constitute a comprehensive suite of mentor/mentee matching, & teaching and mentoring tools.',
-		imageSrc: '/images/card-associations.jpg',
+		imageSrc: '/images/card-associations.png',
 	},
 ];
 
