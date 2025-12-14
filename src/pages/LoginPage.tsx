@@ -6,6 +6,7 @@ import Input from "../components/ui/Input";
 import { useToast } from "../context/ToastContext";
 import {useAuth} from "../context/AuthContext";
 import {validatePassword} from "../utils/validatePassword";
+import { useLocation, useNavigate } from 'react-router-dom';
 type Provider = "google" | "facebook";
 
 type LoginFormValues = {
@@ -17,6 +18,10 @@ export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const { toast } = useToast();
     const { login } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const from = (location.state as { from?: string })?.from || '/dashboard';
+
     const {
         register,
         handleSubmit,
@@ -33,6 +38,7 @@ export default function LoginPage() {
         try {
             await login(values);
             toast({ variant: "success", title: "Success", message: "Logged in successfully." });
+            navigate(from, { replace: true });
         } catch (e) {
             const message = e instanceof Error ? e.message : "Login failed";
             toast({ variant: "error", title: "Login failed", message });
