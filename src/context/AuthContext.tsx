@@ -1,6 +1,7 @@
 // src/context/AuthContext.tsx
 import React from "react";
 import API from "../utils/apis/ApiBase";
+import {LOGIN_API} from "../constants/api";
 
 type JwtPayload = {
   sub?: string;
@@ -153,7 +154,7 @@ export function AuthProvider({ children, apiBaseUrl }: AuthProviderProps) {
   const login: AuthContextValue["login"] = React.useCallback(
     async ({ email, password }) => {
       const data = await authRequest<{ email: string; password: string }, { token: string }>(
-        "/auth/login",
+        LOGIN_API,
         { email, password }
       );
 
