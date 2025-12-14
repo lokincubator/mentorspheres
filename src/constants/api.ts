@@ -9,3 +9,4 @@ export const LOGOUT_API = "/api/auth/logout/";
 export const SIGNUP_API = "/api/auth/register/";
 export const CURRENT_USER_API = "/api/auth/me/";
 export const PROFILES_API = "/api/profiles/";
+export const PROFILE_DETAIL_API = (id: string | number) => `/api/profiles/${id}/`;
