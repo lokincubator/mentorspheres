@@ -1,7 +1,7 @@
 // src/context/AuthContext.tsx
 import React from "react";
 import API from "../utils/apis/ApiBase";
-import {LOGIN_API} from "../constants/api";
+import { LOGIN_API, SIGNUP_API } from "../constants/api";
 
 type JwtPayload = {
   sub?: string;
@@ -174,7 +174,7 @@ export function AuthProvider({ children, apiBaseUrl }: AuthProviderProps) {
       const data = await authRequest<
         { name: string; email: string; password: string },
         { token: string }
-      >("/auth/signup", { name, email, password });
+      >(SIGNUP_API, { name, email, password });
 
       if (!data.token || isTokenExpired(data.token)) {
         throw new Error("Invalid token received");
