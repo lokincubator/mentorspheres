@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
+import {AuthProvider} from "./context/AuthContext";
+import {ToastProvider} from "./context/ToastContext";
 
 const root = ReactDOM.createRoot(
 	document.getElementById('root') as HTMLElement
@@ -11,10 +13,14 @@ const root = ReactDOM.createRoot(
 
 root.render(
 	<React.StrictMode>
-		<BrowserRouter>
-			<AppProvider>
-				<App />
-			</AppProvider>
-		</BrowserRouter>
+        <AuthProvider>
+            <BrowserRouter>
+                <AppProvider>
+                    <ToastProvider>
+                        <App />
+                    </ToastProvider>
+                </AppProvider>
+            </BrowserRouter>
+        </AuthProvider>
 	</React.StrictMode>
 );
