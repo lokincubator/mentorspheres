@@ -5,6 +5,7 @@ import SignupPage from './pages/SignupPage';
 import PublicRoute from './layout/PublicRoute';
 import ProtectedRoute from './layout/ProtectedRoute';
 import ProfilePage from './pages/ProfilePage';
+import MentorsPage from './pages/MentorsPage';
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
+                <Route path="/mentor" element={<MentorsPage />} />
             </Route>
             <Route element={<ProtectedRoute />}>
                 <Route path="/profile/:id" element={<ProfilePage />} />
