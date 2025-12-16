@@ -7,6 +7,9 @@ import { useToast } from "../context/ToastContext";
 import {useAuth} from "../context/AuthContext";
 import {validatePassword} from "../utils/validatePassword";
 import { useLocation, useNavigate } from 'react-router-dom';
+import { Button, Divider, IconButton, InputAdornment, Typography } from "@mui/material";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
 type Provider = "google" | "facebook";
 
 type LoginFormValues = {
@@ -53,7 +56,7 @@ export default function LoginPage() {
     return (
         <div className="min-h-screen bg-white flex items-center justify-center px-4">
             <div className="w-full max-w-md">
-                <h1 className="text-2xl font-semibold text-gray-900 mb-6">Login</h1>
+                <Typography variant="h5" className="mb-6">Login</Typography>
 
                 <form onSubmit={onSubmit} className="space-y-4">
                     <Input
@@ -79,14 +82,14 @@ export default function LoginPage() {
                         error={!!errors.password}
                         helperText={errors.password?.message || " "}
                         endAdornment={
-                            <button
-                                type="button"
+                            <IconButton
                                 onClick={() => setShowPassword((s) => !s)}
-                                className="px-2 py-1 text-sm text-gray-600 hover:text-gray-900"
                                 aria-label={showPassword ? "Hide password" : "Show password"}
+                                edge="end"
+                                size="small"
                             >
-                                {showPassword ? "Hide" : "Show"}
-                            </button>
+                                {showPassword ? <VisibilityOff /> : <Visibility />}
+                            </IconButton>
                         }
                         {...register("password", {
                             required: "Password is required",
@@ -101,37 +104,40 @@ export default function LoginPage() {
                         </Link>
                     </div>
 
-                    <button
+                    <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full rounded-md bg-red-700 py-3 text-white font-semibold hover:bg-red-800 disabled:opacity-50 disabled:cursor-not-allowed"
+                        variant="contained"
+                        color="primary"
+                        fullWidth
+                        sx={{ py: 1.5, fontWeight: 600 }}
                     >
                         {isSubmitting ? "Logging in..." : "Login"}
-                    </button>
+                    </Button>
                 </form>
 
-                <div className="my-6 flex items-center gap-3">
-                    <div className="h-px flex-1 bg-gray-200" />
-                    <div className="text-xs text-gray-500">OR</div>
-                    <div className="h-px flex-1 bg-gray-200" />
-                </div>
+                <Divider sx={{ my: 3 }}>OR</Divider>
 
                 <div className="space-y-3">
-                    <button
+                    <Button
                         type="button"
                         onClick={() => onSocialLogin("google")}
-                        className="w-full rounded-md border border-gray-300 bg-white py-3 font-medium text-gray-900 hover:bg-gray-50"
+                        variant="outlined"
+                        fullWidth
+                        sx={{ py: 1.5, fontWeight: 500 }}
                     >
                         Login via Google
-                    </button>
+                    </Button>
 
-                    <button
+                    <Button
                         type="button"
                         onClick={() => onSocialLogin("facebook")}
-                        className="w-full rounded-md bg-[#1877F2] py-3 font-medium text-white hover:brightness-95"
+                        variant="contained"
+                        fullWidth
+                        sx={{ py: 1.5, fontWeight: 500, backgroundColor: '#1877F2', '&:hover': { backgroundColor: '#1864d6' } }}
                     >
                         Login via Facebook
-                    </button>
+                    </Button>
                 </div>
             </div>
         </div>
