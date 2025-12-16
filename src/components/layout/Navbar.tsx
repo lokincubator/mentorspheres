@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
+import Button from '../ui/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 

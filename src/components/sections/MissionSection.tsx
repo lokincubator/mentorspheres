@@ -3,7 +3,7 @@ import { Section } from '../ui/Section';
 import { Container } from '../ui/Container';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
-import { Button } from '../ui/Button';
+import Button from '../ui/Button';
 
 export const MissionSection: React.FC = () => {
 	return (

@@ -4,7 +4,7 @@ import { Container } from '../ui/Container';
 import { Card, CardBody } from '../ui/Card';
 import { Heading } from '../ui/Heading';
 import { Text } from '../ui/Text';
-import { Button } from '../ui/Button';
+import Button from '../ui/Button';
 
 const cards = [
 	{

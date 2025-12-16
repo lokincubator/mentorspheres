@@ -3,10 +3,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Input from "../components/ui/Input";
+import Button from "../components/ui/Button";
 import {useAuth} from "../context/AuthContext";
 import { useToast } from "../context/ToastContext";
 import {validatePassword} from "../utils/validatePassword";
-import { Button, Divider, IconButton, Typography } from "@mui/material";
+import { Divider, IconButton, Typography } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 
