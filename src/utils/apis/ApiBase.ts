@@ -5,13 +5,15 @@ import axios, {
     AxiosResponse,
 } from 'axios';
 import ENVIRONMENT from '../config';
-import { logout, getToken, getTokenType } from '../auth';
+import { auth } from '../../firebase';
+import { signOut } from 'firebase/auth';
 
 export const API_URL: string = ENVIRONMENT.ENV_IP;
 
 const handleErrors = async (err: AxiosError): Promise<never> => {
     if (err?.response?.status === 401) {
-        logout();
+        // If unauthorized, sign out locally to clear state
+        try { await signOut(auth); } catch { /* noop */ }
         return Promise.reject(err);
     }
 
@@ -29,17 +31,19 @@ const axiosInstance: AxiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use(
-    (config: AxiosRequestConfig): AxiosRequestConfig => {
-        const token = getToken();
-        const tokenType = getTokenType();
-
-        if (token) {
-            config.headers = {
-                ...config.headers,
-                Authorization: `${tokenType} ${token}`,
-            };
+    async (config: any): Promise<any> => {
+        const user = auth.currentUser;
+        if (user) {
+            try {
+                const token = await user.getIdToken();
+                config.headers = {
+                    ...config.headers,
+                    Authorization: `Bearer ${token}`,
+                };
+            } catch {
+                // ignore token retrieval failures; request will proceed without auth header
+            }
         }
-
         return config;
     },
     (err: AxiosError) => Promise.reject(err)

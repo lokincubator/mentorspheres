@@ -6,7 +6,15 @@ import {Navbar} from "../components/layout/Navbar";
 import {Footer} from "../components/layout/Footer";
 
 export default function PublicRoute() {
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, loading } = useAuth();
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-white text-gray-700">
+        Loading...
+      </div>
+    );
+  }
 
   if (isAuthenticated) {
     return <Navigate to="/dashboard" replace />;

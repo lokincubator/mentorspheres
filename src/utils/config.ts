@@ -1,26 +1,13 @@
-const PROD_DOMAIN = "";
-const STAGING_DOMAIN = "https://mentorsphere-dev-e56c7.ondigitalocean.app/api/docs/";
-const DEV_DOMAIN = "https://mentorsphere-dev-e56c7.ondigitalocean.app/api/docs/";
+const DEV_DOMAIN = "https://mentorsphere-dev-e56c7.ondigitalocean.app/api/";
 
-type ModeKey = 'PRODUCTION' | 'STAGING' | 'DEVELOPMENT';
-
-const MODE = {
-  PRODUCTION: {
-    ENV_IP: PROD_DOMAIN,
-  },
-  STAGING: {
-    ENV_IP: STAGING_DOMAIN,
-  },
-  DEVELOPMENT: {
+const ENVIRONMENT = {
     ENV_IP: DEV_DOMAIN,
-  },
-} as const satisfies Record<ModeKey, { ENV_IP: string }>; 
-
-const NEXT_MODE: ModeKey = "STAGING"; // Change this to STAGING for staging deployment
-const { ENV_IP } = MODE[NEXT_MODE];
-
-const ENVIRONMENT: { ENV_IP: string } = {
-  ENV_IP,
+    REACT_APP_FIREBASE_API_KEY: "AIzaSyCtCoIacYToIDZLE",
+    REACT_APP_FIREBASE_AUTH_DOMAIN: "finder.firebaseapp.com",
+    REACT_APP_FIREBASE_PROJECT_ID: "pixafinder",
+    REACT_APP_FIREBASE_STORAGE_BUCKET: "pixafinder.appspot.com",
+    REACT_APP_FIREBASE_MESSAGING_SENDER_ID: "4532345391321",
+    REACT_APP_FIREBASE_APP_ID: "",
 };
 
 export default ENVIRONMENT;
