@@ -1,4 +1,4 @@
-// src/pages/MenteeIntakeForm.tsx
+// src/pages/LoginPage.tsx
 import React, { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import {
@@ -16,35 +16,35 @@ import { styled } from "@mui/material/styles";
 
 // ---- Types ----
 
-type MenteeIntakeValues = {
+type MentorIntakeValues = {
   // Step 1: Professional Background
   current_role: string;
   professional_experience: string;
   years_of_experience: string;
 
-  // Step 2: Areas of Interest
-  interest_domains: string;
-  skills_to_learn: string;
+  // Step 2: Areas of Expertise
+  expertise_domains: string;
+  specializations: string;
 
-  // Step 3: Career Goals
-  career_goals: string;
-  milestones_with_mentor: string;
+  // Step 3: Key Achievements
+  notable_achievements: string;
+  awards_certifications: string;
 
-  // Step 4: Achievements and Challenges
-  recent_achievements: string;
-  current_challenges: string;
+  // Step 4: Mentoring Experience
+  mentoring_duration: string;
+  mentoring_rewarding_aspects: string;
 
   // Step 5: Availability
   hours_per_week: string;
   preferred_days_times: string;
 
-  // Step 6: Learning Style
-  learning_style: string;
-  mentor_expectations: string;
+  // Step 6: Mentoring Style
+  mentoring_style: string;
+  mentee_expectations: string;
 
-  // Step 7: Expectations from Mentorship
-  hope_to_gain: string;
-  advice_topics: string;
+  // Step 7: Goals as a Mentor
+  mentoring_goals: string;
+  mentee_types_best_fit: string;
 
   // Step 8: Preferred Communication Channels
   preferred_communication: string;
@@ -102,16 +102,16 @@ const fieldSx = {
   },
 };
 
-export default function MenteeIntakeForm() {
+export default function MentorIntakeFormPage() {
   const steps = useMemo(
     () => [
       "Your Professional Background",
-      "Areas of Interest",
-      "Career Goals",
-      "Achievements and Challenges",
+      "Areas of Expertise",
+      "Key Achievements",
+      "Mentoring Experience",
       "Availability",
-      "Learning Style",
-      "Expectations from Mentorship",
+      "Mentoring Style",
+      "Goals as a Mentor",
       "Preferred Communication Channels",
       "Personal Interests",
       "Additional Information",
@@ -126,23 +126,23 @@ export default function MenteeIntakeForm() {
     handleSubmit,
     getValues,
     formState: { isSubmitting },
-  } = useForm<MenteeIntakeValues>({
+  } = useForm<MentorIntakeValues>({
     defaultValues: {
       current_role: "",
       professional_experience: "",
       years_of_experience: "",
-      interest_domains: "",
-      skills_to_learn: "",
-      career_goals: "",
-      milestones_with_mentor: "",
-      recent_achievements: "",
-      current_challenges: "",
+      expertise_domains: "",
+      specializations: "",
+      notable_achievements: "",
+      awards_certifications: "",
+      mentoring_duration: "",
+      mentoring_rewarding_aspects: "",
       hours_per_week: "",
       preferred_days_times: "",
-      learning_style: "",
-      mentor_expectations: "",
-      hope_to_gain: "",
-      advice_topics: "",
+      mentoring_style: "",
+      mentee_expectations: "",
+      mentoring_goals: "",
+      mentee_types_best_fit: "",
       preferred_communication: "",
       open_to_other_tools: "",
       hobbies_interests: "",
@@ -158,7 +158,7 @@ export default function MenteeIntakeForm() {
   const onSubmit = handleSubmit(async (values) => {
     // TODO: Wire this up to your API
     // For now we log a clean payload.
-    console.log("Mentee intake submit:", values);
+    console.log("Mentor intake submit:", values);
   });
 
   return (
@@ -174,7 +174,7 @@ export default function MenteeIntakeForm() {
               mb: { xs: 3, md: 4 },
             }}
           >
-            Mentee Profile Creation
+            Mentor Profile Creation
           </Typography>
 
           <Stepper
@@ -202,7 +202,7 @@ export default function MenteeIntakeForm() {
           </Stepper>
 
           <Box component="form" onSubmit={onSubmit} noValidate>
-            {/* Step 1 */}
+            {/* Step content */}
             {activeStep === 0 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
@@ -220,7 +220,7 @@ export default function MenteeIntakeForm() {
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Please describe your professional experience and current field of work.
+                  Please describe your professional experience and expertise in your field.
                 </Typography>
                 <TextField
                   fullWidth
@@ -241,94 +241,90 @@ export default function MenteeIntakeForm() {
               </Box>
             )}
 
-            {/* Step 2 */}
             {activeStep === 1 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
-                  Areas of Interest
+                  Areas of Expertise
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  What specific fields or domains are you most interested in developing your skills or knowledge?
+                  Which specific fields or domains are you most knowledgeable in?
                 </Typography>
                 <TextField
                   fullWidth
-                  placeholder="e.g., Software Development, Marketing, Finance, etc."
-                  {...register("interest_domains")}
+                  placeholder="e.g., Software Development, Product Management, etc."
+                  {...register("expertise_domains")}
                   sx={{ ...fieldSx, mb: 2.5 }}
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Are there particular skills or technologies you want to learn more about?
+                  Have you specialized in any particular tools, methodologies, or practices?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("skills_to_learn")}
+                  {...register("specializations")}
                   sx={{ ...fieldSx }}
                 />
               </Box>
             )}
 
-            {/* Step 3 */}
             {activeStep === 2 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
-                  Career Goals
+                  Key Achievements
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  What are your short-term and long-term career goals?
+                  Could you share some of your notable achievements in your career?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("career_goals")}
+                  {...register("notable_achievements")}
                   sx={{ ...fieldSx, mb: 2.5 }}
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Are there specific milestones you want to achieve with the help of a mentor?
+                  Have you received any awards, recognitions, or certifications?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("milestones_with_mentor")}
+                  {...register("awards_certifications")}
                   sx={{ ...fieldSx }}
                 />
               </Box>
             )}
 
-            {/* Step 4 */}
             {activeStep === 3 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
-                  Achievements and Challenges
+                  Mentoring Experience
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Could you share some of your recent achievements in your career or education?
+                  Have you mentored others before? If yes, for how long?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("recent_achievements")}
+                  {...register("mentoring_duration")}
                   sx={{ ...fieldSx, mb: 2.5 }}
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  What are the main challenges you're currently facing in your professional journey?
+                  What aspects of mentoring do you find most rewarding?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("current_challenges")}
+                  {...register("mentoring_rewarding_aspects")}
                   sx={{ ...fieldSx }}
                 />
               </Box>
             )}
 
-            {/* Step 5 */}
             {activeStep === 4 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
@@ -336,7 +332,7 @@ export default function MenteeIntakeForm() {
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  How many hours per week can you dedicate to mentoring sessions?
+                  How many hours per week are you available to dedicate to mentoring?
                 </Typography>
                 <TextField
                   fullWidth
@@ -346,7 +342,7 @@ export default function MenteeIntakeForm() {
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Are there any specific days or times that work best for you to connect with a mentor?
+                  Are there any specific days or times that work best for you to connect with a mentee?
                 </Typography>
                 <TextField
                   fullWidth
@@ -357,65 +353,62 @@ export default function MenteeIntakeForm() {
               </Box>
             )}
 
-            {/* Step 6 */}
             {activeStep === 5 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
-                  Learning Style
+                  Mentoring Style
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  How do you prefer to receive guidance?
+                  How would you describe your mentoring style?
                 </Typography>
                 <TextField
                   fullWidth
-                  placeholder="e.g., structured lessons, open discussions, project-based learning, etc."
-                  {...register("learning_style")}
+                  placeholder="e.g., hands-on, advisory, guiding, etc."
+                  {...register("mentoring_style")}
                   sx={{ ...fieldSx, mb: 2.5 }}
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  What do you expect from your mentor during the mentoring process?
+                  What do you expect from your mentee during the mentoring process?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("mentor_expectations")}
+                  {...register("mentee_expectations")}
                   sx={{ ...fieldSx }}
                 />
               </Box>
             )}
 
-            {/* Step 7 */}
             {activeStep === 6 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
-                  Expectations from Mentorship
+                  Goals as a Mentor
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  What do you hope to gain from a mentoring relationship?
+                  What do you hope to achieve through mentoring?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("hope_to_gain")}
+                  {...register("mentoring_goals")}
                   sx={{ ...fieldSx, mb: 2.5 }}
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Are there particular topics or areas where you’re seeking advice or guidance?
+                  Are there particular types of mentees you feel you can help the most?
                 </Typography>
                 <TextField
                   fullWidth
                   placeholder="Please type here"
-                  {...register("advice_topics")}
+                  {...register("mentee_types_best_fit")}
                   sx={{ ...fieldSx }}
                 />
               </Box>
             )}
 
-            {/* Step 8 */}
             {activeStep === 7 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
@@ -433,7 +426,7 @@ export default function MenteeIntakeForm() {
                 />
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Are you open to using different communication tools based on the mentor’s preference?
+                  Are you open to using different communication tools based on the mentee’s preference?
                 </Typography>
                 <TextField
                   fullWidth
@@ -444,7 +437,6 @@ export default function MenteeIntakeForm() {
               </Box>
             )}
 
-            {/* Step 9 */}
             {activeStep === 8 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
@@ -452,7 +444,7 @@ export default function MenteeIntakeForm() {
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Do you have any hobbies or interests that you'd like to share with your mentor?
+                  Do you have any hobbies or interests that you'd like to share with your mentee?
                 </Typography>
                 <TextField
                   fullWidth
@@ -473,7 +465,6 @@ export default function MenteeIntakeForm() {
               </Box>
             )}
 
-            {/* Step 10 */}
             {activeStep === 9 && (
               <Box>
                 <Typography variant="h6" sx={{ fontWeight: 800, mb: 2 }}>
@@ -481,7 +472,7 @@ export default function MenteeIntakeForm() {
                 </Typography>
 
                 <Typography sx={{ mb: 1.5 }}>
-                  Is there anything else you’d like to share that would help us match you with the right mentor?
+                  Is there anything else you’d like to share that would help us match you with the right mentee?
                 </Typography>
                 <TextField
                   fullWidth
@@ -529,7 +520,8 @@ export default function MenteeIntakeForm() {
                   type="button"
                   variant="contained"
                   onClick={() => {
-                    console.log("Mentee intake step values:", getValues());
+                    // keep values, just advance
+                    console.log("Mentor intake step values:", getValues());
                     goNext();
                   }}
                   sx={{
@@ -559,7 +551,7 @@ export default function MenteeIntakeForm() {
                     "&:hover": { backgroundColor: BRAND_RED },
                   }}
                 >
-                  Next
+                  Submit
                 </Button>
               )}
             </Box>

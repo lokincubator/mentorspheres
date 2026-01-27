@@ -9,8 +9,8 @@ import Typography from '@mui/material/Typography';
 
 const navItems = [
 	{ label: 'Home', to: '/' },
-	{ label: 'Mentor', to: '/mentor' },
-	{ label: 'Mentee', to: '/mentee' },
+	{ label: 'Mentors', to: '/all-mentors' },
+	{ label: 'Mentees', to: '/all-mentees' },
 	{ label: 'About Us', to: '/about' },
 	{ label: 'Contact Us', to: '/contact' },
 ];
