@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
 	return (
@@ -28,23 +29,30 @@ export const Footer: React.FC = () => {
 					{/* Navigation links columns */}
 					<div className='grid gap-6 md:grid-cols-3 text-[14px] text-brandGray'>
 						<div className='space-y-2'>
-							<div className='font-semibold text-brandDark'>
+							{/* <div className='font-semibold text-brandDark'>
 								MENTOR
-							</div>
-							<div>MENTEE</div>
-							<div>MENTORSHIP</div>
-							<div>TRANSFER CONNECTIONS</div>
-							<div>ABOUT</div>
+							</div> */}
+							<div className='cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'>MENTOR</div>
+							<div className='cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'>MENTEE</div>
+							<div className='cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'>MENTORSHIP</div>
+							{/* <div>TRANSFER CONNECTIONS</div> */}
+							<div className='cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'>ABOUT</div>
 						</div>
 
 						<div className='space-y-2'>
-							<div className='font-semibold text-brandDark'>
+							{/* <div className='font-semibold text-brandDark'>
 								CONTACT
-							</div>
-							<div>TERMS &amp; CONDITIONS</div>
-							<div>PRIVACY POLICY</div>
-							<div>TRANSFER CONNECTIONS</div>
-							<div>ABOUT</div>
+							</div> */}
+							<Link
+								to='/contact'
+								className='inline-block cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'
+							>
+								CONTACT US
+							</Link>
+							<div className='cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'>TERMS &amp; CONDITIONS</div>
+							<div className='cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'>PRIVACY POLICY</div>
+							{/* <div>TRANSFER CONNECTIONS</div> */}
+							{/* <div className='cursor-pointer transition-colors duration-150 hover:text-brandRed hover:underline hover:underline-offset-4'>ABOUT</div> */}
 						</div>
 
 						<div className='space-y-2'>

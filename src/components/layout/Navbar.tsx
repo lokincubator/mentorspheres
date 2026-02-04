@@ -34,16 +34,47 @@ export const Navbar: React.FC = () => {
 
                     <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 3, typography: 'body1' }}>
                         {navItems.map((item) => (
-                            <NavLink
+                            <Box
                                 key={item.to}
+                                component={NavLink}
                                 to={item.to}
-                                style={({ isActive }) => ({
-                                    color: isActive ? '#b91c1c' : 'inherit',
-                                    textDecoration: 'none'
-                                })}
+                                className={({ isActive }) => (isActive ? 'nav-active' : '')}
+                                sx={{
+                                    color: 'text.primary',
+                                    textDecoration: 'none',
+                                    fontWeight: 500,
+                                    position: 'relative',
+                                    transition: 'color 150ms ease',
+                                    '&:hover': {
+                                        color: 'primary.main',
+                                    },
+                                    '&.nav-active': {
+                                        color: '#b91c1c',
+                                    },
+                                    // Animated underline
+                                    '&::after': {
+                                        content: '""',
+                                        position: 'absolute',
+                                        left: 0,
+                                        bottom: -6,
+                                        height: '2px',
+                                        width: '100%',
+                                        backgroundColor: 'currentColor',
+                                        transform: 'scaleX(0)',
+                                        transformOrigin: 'left',
+                                        transition: 'transform 150ms ease',
+                                        opacity: 0.9,
+                                    },
+                                    '&:hover::after': {
+                                        transform: 'scaleX(1)',
+                                    },
+                                    '&.nav-active::after': {
+                                        transform: 'scaleX(1)',
+                                    },
+                                }}
                             >
                                 {item.label}
-                            </NavLink>
+                            </Box>
                         ))}
                     </Box>
 
