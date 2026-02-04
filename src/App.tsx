@@ -6,8 +6,8 @@ import PublicRoute from './layout/PublicRoute';
 import ProtectedRoute from './layout/ProtectedRoute';
 import ProfilePage from './pages/ProfilePage';
 import AllMentorsPage from './pages/AllMentorsPage';
-import MentorIntakeFormPage from './pages/MentorIntakeFormPage';
-import MenteeIntakeFormPage from './pages/MenteeIntakeFormPage';
+import MentorIntakeFormPage from "./pages/MentorRegistrationFormPage";
+import MenteeIntakeFormPage from './pages/MenteeRegistrationFormPage';
 import UserProfilePage from './pages/userProfilePage'; 
 import AllMenteesPage from './pages/AllMenteesPage';
 
