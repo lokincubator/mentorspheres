@@ -10,6 +10,8 @@ import MentorIntakeFormPage from "./pages/MentorRegistrationFormPage";
 import MenteeIntakeFormPage from './pages/MenteeRegistrationFormPage';
 import UserProfilePage from './pages/userProfilePage'; 
 import AllMenteesPage from './pages/AllMenteesPage';
+import PrivacyPage from './pages/PrivacyPage';
+import ContactPage from './pages/ContactPage';
 
 // TODO move mentor intake form page to protected after we wire it up
 
@@ -25,6 +27,8 @@ function App() {
                 <Route path='/mentor-intake-form' element={<MentorIntakeFormPage />} />
                 <Route path='/mentee-intake-form' element={<MenteeIntakeFormPage />} />
                 <Route path='/user-profile' element={<UserProfilePage />} />
+                <Route path='/privacy' element={<PrivacyPage />} />
+                <Route path='/contact' element={<ContactPage />} />
             </Route>
             <Route element={<ProtectedRoute />}>
                 <Route path="/profile/:id" element={<ProfilePage />} />
